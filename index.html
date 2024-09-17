@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spy Calculator</title>
+    <link rel="shortcut icon" href="asset/media/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <script src="asset/js/main.js" defer></script>
+</head>
+<body>
+    <div id="setServer">
+        <div class="titleServer fontXXL">Server Speed</div>
+        <div id="servers" onclick="setServer(event)">
+            <div class="server selected" data-server="1">X1</div>
+            <div class="server" data-server="1.5">X2</div>
+            <div class="server" data-server="2">X3</div>
+            <div class="server" data-server="2.666666">Mayhem</div>
+            <div class="server" data-server="3">X5</div>
+        </div>
+    </div>
+    <div id="setPlayers">
+        <div class="player">
+            <div class="typePlayer fontL">ATTACKER</div>
+            <div class="item">
+                <div class="titleInput">Coordinates</div>
+                <div id="coordAtt" class="coord">
+                    <input class="control" type="text" oninput="inputCoord(this)">
+                    <input class="control" type="text" oninput="inputCoord(this)">
+                </div>
+            </div>
+            <div class="item">
+                <div class="titleInput">Arrival</div>
+                <div id="arrival" class="coord">
+                    <input class="control" type="text" oninput="inputMaxNumber(this, 23)">
+                    <input class="control" type="text" oninput="inputMaxNumber(this, 59)">
+                    <input class="control" type="text" oninput="inputMaxNumber(this, 59)">
+                </div>
+            </div>
+            <div class="item">
+                <div class="titleInput">Speed Troop</div>
+                <select onchange="getSpeedAtt(this)">
+                    <option selected value="4">Ram</option>
+                    <option value="3">Catapult</option>
+                </select>
+            </div>
+            <div class="item">
+                <div class="titleInput">Siege</div>
+                <input type="checkbox">
+            </div>
+        </div>
+        <div class="player">
+            <div class="typePlayer fontL">SCOUT</div>
+            <div class="item">
+                <div class="titleInput">Coordinates</div>
+                <div id="coordScout" class="coord">
+                    <input class="control" type="text" oninput="inputCoord(this)">
+                    <input class="control" type="text" oninput="inputCoord(this)">
+                </div>
+            </div>
+            <div class="item">
+                <div class="titleInput">Tribe</div>
+                <select onchange="getSpeedScout(this)">
+                    <option selected value="16">Roman</option>
+                    <option value="17">Gaul</option>
+                    <option value="9">Teuton</option>
+                </select>
+            </div>
+            <div class="item">
+                <div class="titleInput">TS lvl</div>
+                <div id="coordScout" class="coord">
+                    <input class="control" type="text" oninput="inputMaxNumber(this, 20); setScoutTs(this)">
+                </div>
+            </div>
+        </div>
+        <div class="player">
+            <div class="typePlayer fontL">DEFENDERS</div>
+            <div class="item">
+                <div class="titleInput">Coordinates</div>
+                <div id="coordDef" class="coord">
+                    <input class="control" type="text" oninput="inputCoord(this)">
+                    <input class="control" type="text" oninput="inputCoord(this)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="btnContainer">
+        <div id="btnCalculate" class="fontL" onclick="calculate(this); drawCanvas()">Calculate Spy</div>
+    </div>
+    <div id="results"></div>
+</body>
+</html>
